@@ -37,6 +37,7 @@ public class RestoreStateActivity extends AppCompatActivity {
         Bundle extraBundle = new Bundle();
         extraBundle.putInt(EXTRA_KEY_DATA, 123);
         extraBundle.putString(EXTRA_KEY_DESCRIPTION, "This is a initial description");
+        restoreStateFragment.setArguments(extraBundle);
         fragmentTransaction.replace(R.id.fragment_contrainer, restoreStateFragment, FRAGMENT_TAG);
         fragmentTransaction.commit();
     }
@@ -60,11 +61,20 @@ public class RestoreStateActivity extends AppCompatActivity {
                 Fragment.SavedState savedState = savedInstanceState.getParcelable(FRAGMENT_SAVED_STATE);
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 Fragment fragmentByTag = getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG);
-                if (fragmentByTag instanceof RestoreStateFragment) {
+                if (fragmentByTag != null && fragmentByTag instanceof RestoreStateFragment) {
+                    fragmentTransaction.remove(fragmentByTag);
+                    fragmentByTag = new RestoreStateFragment();
                     fragmentByTag.setInitialSavedState(savedState);
+                    fragmentTransaction.replace(R.id.fragment_contrainer, fragmentByTag, FRAGMENT_TAG);
                 }
                 fragmentTransaction.commit();
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onDestroy() called");
+        super.onDestroy();
     }
 }

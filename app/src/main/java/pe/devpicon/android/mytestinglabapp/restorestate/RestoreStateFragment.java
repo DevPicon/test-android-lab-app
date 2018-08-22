@@ -65,4 +65,16 @@ public class RestoreStateFragment extends Fragment {
             }
         }
     }
+
+    @Override
+    public void onDestroyView() {
+        Log.d(TAG, "onDestroyView() called");
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d(TAG, "onDestroy() called");
+        super.onDestroy();
+    }
 }
