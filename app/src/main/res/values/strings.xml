@@ -3,4 +3,5 @@
     <string name="empty">This container is empty</string>
     <string name="label_data_id">Label Data Id</string>
     <string name="label_data_description">Data Description</string>
+    <string name="button_restore_state">State Restore With Fragments</string>
 </resources>
