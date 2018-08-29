@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_text_image_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_insert_image_url" />
+
+        <Button
+            android:id="@+id/button_load_image_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load Image" />
+
+        <ImageView
+            android:id="@+id/image_view_image_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <EditText
+            android:id="@+id/edit_text_image_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_insert_image_url" />
+
+        <Button
+            android:id="@+id/button_load_image_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load Image" />
+
+        <ImageView
+            android:id="@+id/image_view_image_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            tools:src="@drawable/ic_launcher_background" />
+    </LinearLayout>
+</ScrollView>

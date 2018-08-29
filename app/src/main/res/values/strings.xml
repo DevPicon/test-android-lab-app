@@ -4,4 +4,6 @@
     <string name="label_data_id">Label Data Id</string>
     <string name="label_data_description">Data Description</string>
     <string name="button_restore_state">State Restore With Fragments</string>
+    <string name="label_insert_image_url">Insert valid image url</string>
+    <string name="button_picasso_test">Picasso Image Loader Test</string>
 </resources>
