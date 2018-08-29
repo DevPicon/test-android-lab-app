@@ -29,16 +29,19 @@ import okhttp3.OkHttpClient;
 import okhttp3.TlsVersion;
 
 /**
- * This helper class provide a required settings to enable TLS 1.2 compatibility.
+ * This helper class provide a required settings to enable TLS 1.2 compatibility (16<= API < 20).
  * <p>
- * If you want to use this with picasso then use this code in your Application onCreate method
+ * Note: If you want to use this with picasso then use this code in your Application onCreate method.
+ *
+ * @link https://github.com/square/okhttp/issues/2372
+ * @see SSLSocketFactory
  **/
 public class SecurityProviderHelper {
     private static final String TAG = "SecurityProviderHelper";
     private static final String TLSV1_2_PROTOCOL = "TLSv1.2";
 
     /**
-     * upgradeSecurityProvider should be called at onCreate of the Application class
+     * UpgradeSecurityProvider should be called at onCreate of the Application class
      **/
     public static void upgradeSecurityProvider(final Application application) {
         try {
