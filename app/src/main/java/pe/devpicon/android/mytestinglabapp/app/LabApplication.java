@@ -9,7 +9,6 @@ import okhttp3.OkHttpClient;
 import pe.devpicon.android.mytestinglabapp.utils.SecurityProviderHelper;
 
 public class LabApplication extends Application {
-    private static final String TAG = "LabApplication";
 
     @Override
     public void onCreate() {

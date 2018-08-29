@@ -5,20 +5,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.ImageView;
 
-import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.PicassoTools;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
 import java.io.IOException;
-import java.util.Collections;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Protocol;
 
 public class ImageLoader {
 
@@ -46,7 +40,6 @@ public class ImageLoader {
         private boolean centerCrop;
         private boolean noFade;
         private boolean centerInside;
-        private boolean enableLogging;
 
         private int imagePlaceholder;
         private int imageError;
@@ -55,7 +48,6 @@ public class ImageLoader {
         private int sizeY;
 
         private Callback callback;
-        private Picasso picasso;
 
         public Builder(Context context) {
             this.context = context;
@@ -97,11 +89,6 @@ public class ImageLoader {
 
         public ImageLoader.Builder centerInside() {
             this.centerInside = true;
-            return this;
-        }
-
-        public ImageLoader.Builder enableLogging() {
-            this.enableLogging = true;
             return this;
         }
 
@@ -157,8 +144,6 @@ public class ImageLoader {
 
             return requestCreator.get();
         }
-
-        private static final String TAG = "Builder";
 
         private void loadImage() {
             RequestCreator requestCreator = setupRequestCreator();

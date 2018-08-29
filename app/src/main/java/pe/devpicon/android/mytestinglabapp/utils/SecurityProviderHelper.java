@@ -56,7 +56,7 @@ public class SecurityProviderHelper {
                 }
             });
         } catch (Exception ex) {
-            Log.e("ProfessorsApp", "Unknown issue trying to install a new security provider", ex);
+            Log.e(TAG, "Unknown issue trying to install a new security provider", ex);
         }
     }
 
