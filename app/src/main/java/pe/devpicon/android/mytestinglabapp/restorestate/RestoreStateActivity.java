@@ -25,7 +25,7 @@ public class RestoreStateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restore_state);
 
-        frameLayoutFragmentContainer = findViewById(R.id.fragment_contrainer);
+        frameLayoutFragmentContainer = (FrameLayout) findViewById(R.id.fragment_contrainer);
 
         loadFragment();
     }

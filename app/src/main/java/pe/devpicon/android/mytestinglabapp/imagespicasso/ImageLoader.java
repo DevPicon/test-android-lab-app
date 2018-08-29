@@ -5,14 +5,20 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.ImageView;
 
+import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.PicassoTools;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 
 import java.io.IOException;
+import java.util.Collections;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
 
 public class ImageLoader {
 
@@ -49,6 +55,7 @@ public class ImageLoader {
         private int sizeY;
 
         private Callback callback;
+        private Picasso picasso;
 
         public Builder(Context context) {
             this.context = context;
@@ -154,7 +161,6 @@ public class ImageLoader {
         private static final String TAG = "Builder";
 
         private void loadImage() {
-
             RequestCreator requestCreator = setupRequestCreator();
 
             //load into target
@@ -179,6 +185,7 @@ public class ImageLoader {
 
         private RequestCreator setupRequestCreator() {
             RequestCreator requestCreator;
+
             if (imageUri != null) {
                 requestCreator = Picasso.with(context).load(imageUri);
             } else if (imageResource != 0) {

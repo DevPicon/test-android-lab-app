@@ -24,8 +24,8 @@ public class RestoreStateFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_restore_state, container, false);
-        editTextDataId = rootView.findViewById(R.id.edit_text_data_id);
-        editTextDataDescription = rootView.findViewById(R.id.edit_text_data_description);
+        editTextDataId = (EditText) rootView.findViewById(R.id.edit_text_data_id);
+        editTextDataDescription = (EditText) rootView.findViewById(R.id.edit_text_data_description);
         return rootView;
     }
 

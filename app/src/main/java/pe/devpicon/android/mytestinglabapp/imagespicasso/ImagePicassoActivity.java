@@ -22,18 +22,18 @@ public class ImagePicassoActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_picasso);
 
-        imageView1 = findViewById(R.id.image_view_image_1);
-        imageView2 = findViewById(R.id.image_view_image_2);
+        imageView1 = (ImageView) findViewById(R.id.image_view_image_1);
+        imageView2 = (ImageView) findViewById(R.id.image_view_image_2);
 
-        editText1 = findViewById(R.id.edit_text_image_1);
+        editText1 = (EditText) findViewById(R.id.edit_text_image_1);
         editText1.setText("http://shopping-devel.s3.amazonaws.com/product-images/402.jpg");
 
-        editText2 = findViewById(R.id.edit_text_image_2);
+        editText2 = (EditText) findViewById(R.id.edit_text_image_2);
         editText2.setText("https://s.cornershopapp.com/product-images/376152.jpg");
 
-        buttonLoadImage1 = findViewById(R.id.button_load_image_1);
+        buttonLoadImage1 = (Button) findViewById(R.id.button_load_image_1);
         buttonLoadImage1.setOnClickListener(this);
-        buttonLoadImage2 = findViewById(R.id.button_load_image_2);
+        buttonLoadImage2 = (Button) findViewById(R.id.button_load_image_2);
         buttonLoadImage2.setOnClickListener(this);
 
     }
