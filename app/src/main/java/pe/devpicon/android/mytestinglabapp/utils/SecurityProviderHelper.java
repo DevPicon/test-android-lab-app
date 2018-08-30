@@ -67,7 +67,7 @@ public class SecurityProviderHelper {
      * enableTls12OnPreLollipop should be called when build an instance of OkHttpClient
      **/
     public static OkHttpClient.Builder enableTls12OnPreLollipop(OkHttpClient.Builder client) {
-        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 22) {
+        if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 20) {
             try {
                 SSLContext sc = SSLContext.getInstance(TLSV1_2_PROTOCOL);
                 sc.init(null, null, null);
