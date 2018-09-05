@@ -6,4 +6,5 @@
     <string name="button_restore_state">State Restore With Fragments</string>
     <string name="label_insert_image_url">Insert valid image url</string>
     <string name="button_picasso_test">Picasso Image Loader Test</string>
+    <string name="button_mchart_test">MPAndroidChart Test</string>
 </resources>

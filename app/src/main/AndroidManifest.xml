@@ -22,8 +22,10 @@
         <activity
             android:name=".restorestate.RestoreStateActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".imagespicasso.ImagePicassoActivity"
+        <activity
+            android:name=".imagespicasso.ImagePicassoActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".charts.ChartActivity"></activity>
     </application>
 
 </manifest>
