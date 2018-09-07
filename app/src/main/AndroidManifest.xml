@@ -25,7 +25,9 @@
         <activity
             android:name=".imagespicasso.ImagePicassoActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".charts.ChartActivity"></activity>
+        <activity android:name=".charts.ChartActivity" />
+        <activity android:name=".animtransitions.AnimParentActivity" />
+        <activity android:name=".animtransitions.AnimChildActivity"></activity>
     </application>
 
 </manifest>
