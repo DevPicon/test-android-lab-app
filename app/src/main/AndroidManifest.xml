@@ -26,9 +26,16 @@
             android:name=".imagespicasso.ImagePicassoActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".charts.ChartActivity" />
-        <activity android:name=".animtransitions.AnimParentActivity" />
-        <activity android:name=".animtransitions.AnimChildActivity" />
-        <activity android:name=".zoom.ZoomImageActivity"></activity>
+        <activity
+            android:name=".animtransitions.AnimParentActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".animtransitions.AnimChildActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".zoom.ZoomImageActivity"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
     </application>
 
 </manifest>

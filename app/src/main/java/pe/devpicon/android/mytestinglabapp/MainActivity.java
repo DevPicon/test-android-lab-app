@@ -9,6 +9,7 @@ import android.view.View;
 import pe.devpicon.android.mytestinglabapp.charts.ChartActivity;
 import pe.devpicon.android.mytestinglabapp.imagespicasso.ImagePicassoActivity;
 import pe.devpicon.android.mytestinglabapp.restorestate.RestoreStateActivity;
+import pe.devpicon.android.mytestinglabapp.zoom.ZoomImageActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,5 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void toMChartTest(View view) {
         startActivity(new Intent(this, ChartActivity.class));
+    }
+
+    public void toZoomPhotoView(View view) {
+        startActivity(new Intent(this, ZoomImageActivity.class));
     }
 }

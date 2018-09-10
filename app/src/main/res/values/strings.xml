@@ -8,4 +8,5 @@
     <string name="button_picasso_test">Picasso Image Loader Test</string>
     <string name="button_mchart_test">MPAndroidChart Test</string>
     <string name="button_open_child">Open Child</string>
+    <string name="button_zoom_photoview">Zoom with Photo View</string>
 </resources>
