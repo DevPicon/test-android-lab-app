@@ -91,6 +91,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
                 if (checkBoxReorderToFront.isChecked()) {
                     intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                } else if (checkBoxSingleTask.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 }
                 break;
             case R.id.button_open_second:
@@ -98,6 +100,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
                 if (checkBoxReorderToFront.isChecked()) {
                     intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                } else if (checkBoxSingleTask.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 }
                 break;
             case R.id.button_open_third:
@@ -105,6 +109,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
                 if (checkBoxReorderToFront.isChecked()) {
                     intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                } else if (checkBoxSingleTask.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 }
                 break;
             case R.id.button_open_fourth:
@@ -112,6 +118,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
                 if (checkBoxReorderToFront.isChecked()) {
                     intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                } else if (checkBoxSingleTask.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 }
                 break;
             case R.id.button_open_fifth:

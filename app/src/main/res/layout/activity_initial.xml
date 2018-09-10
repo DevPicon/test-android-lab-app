@@ -33,7 +33,7 @@
             android:id="@+id/checkbox_singleTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/checkbox_single_task" />
+            android:text="@string/checkbox_clear_top" />
 
         <Button
             android:id="@+id/button_open_initial"
