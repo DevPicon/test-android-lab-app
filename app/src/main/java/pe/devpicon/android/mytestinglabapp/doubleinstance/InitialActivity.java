@@ -89,38 +89,22 @@ public class InitialActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.button_open_initial:
                 intent = new Intent(this, InitialActivity.class);
 
-                if (checkBoxReorderToFront.isChecked()) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                } else if (checkBoxSingleTask.isChecked()) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                }
+                addFlag(intent);
                 break;
             case R.id.button_open_second:
                 intent = new Intent(this, SecondActivity.class);
 
-                if (checkBoxReorderToFront.isChecked()) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                } else if (checkBoxSingleTask.isChecked()) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                }
+                addFlag(intent);
                 break;
             case R.id.button_open_third:
                 intent = new Intent(this, ThirdActivity.class);
 
-                if (checkBoxReorderToFront.isChecked()) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                } else if (checkBoxSingleTask.isChecked()) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                }
+                addFlag(intent);
                 break;
             case R.id.button_open_fourth:
                 intent = new Intent(this, FourthActivity.class);
 
-                if (checkBoxReorderToFront.isChecked()) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                } else if (checkBoxSingleTask.isChecked()) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                }
+                addFlag(intent);
                 break;
             case R.id.button_open_fifth:
             default:
@@ -130,6 +114,14 @@ public class InitialActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         startActivity(intent);
+    }
+
+    private void addFlag(Intent intent) {
+        if (checkBoxReorderToFront.isChecked()) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        } else if (checkBoxSingleTask.isChecked()) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
     }
 
 
