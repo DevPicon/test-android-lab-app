@@ -36,6 +36,12 @@
             android:name=".zoom.ZoomImageActivity"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".doubleinstance.InitialActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".doubleinstance.FourthActivity" />
+        <activity android:name=".doubleinstance.SecondActivity" />
+        <activity android:name=".doubleinstance.ThirdActivity" />
     </application>
 
 </manifest>

@@ -9,4 +9,13 @@
     <string name="button_mchart_test">MPAndroidChart Test</string>
     <string name="button_open_child">Open Child</string>
     <string name="button_zoom_photoview">Zoom with Photo View</string>
+    <string name="button_open_reorder_to_front">With Reorder To Front</string>
+    <string name="button_close_result">Close With Result</string>
+    <string name="button_open_activities">Opening Activities</string>
+    <string name="button_open_initial">Open A</string>
+    <string name="button_open_second">Open B</string>
+    <string name="button_open_third">Open C</string>
+    <string name="button_open_fourth">Open D</string>
+    <string name="hash_code">Object HashCode %d</string>
+    <string name="checkbox_reorder_to_front">FLAG_ACTIVITY_REORDER_TO_FRONT</string>
 </resources>
