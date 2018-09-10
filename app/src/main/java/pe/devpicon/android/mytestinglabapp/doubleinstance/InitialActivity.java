@@ -11,8 +11,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,10 +18,9 @@ import pe.devpicon.android.mytestinglabapp.R;
 
 public class InitialActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "InitialActivity";
     private TextView textViewResult, textViewHashCode, textViewStack;
-    private Button buttonA, buttonB, buttonC, buttonD;
-    private CheckBox checkBoxReorderToFront;
+    private Button buttonA, buttonB, buttonC, buttonD, buttonE;
+    private CheckBox checkBoxReorderToFront, checkBoxSingleTask;
 
     private int hashcode = -1;
 
@@ -36,16 +33,19 @@ public class InitialActivity extends AppCompatActivity implements View.OnClickLi
         textViewHashCode = (TextView) findViewById(R.id.text_view_hashcode);
         checkBoxReorderToFront = (CheckBox) findViewById(R.id.checkbox_reorder_to_front);
         textViewStack = (TextView) findViewById(R.id.text_view_stack);
+        checkBoxSingleTask = (CheckBox) findViewById(R.id.checkbox_singleTask);
 
         buttonA = (Button) findViewById(R.id.button_open_initial);
         buttonB = (Button) findViewById(R.id.button_open_second);
         buttonC = (Button) findViewById(R.id.button_open_third);
         buttonD = (Button) findViewById(R.id.button_open_fourth);
+        buttonE = (Button) findViewById(R.id.button_open_fifth);
 
         buttonA.setOnClickListener(this);
         buttonB.setOnClickListener(this);
         buttonC.setOnClickListener(this);
         buttonD.setOnClickListener(this);
+        buttonE.setOnClickListener(this);
 
         hashcode = this.hashCode();
         textViewHashCode.setText(getString(R.string.hash_code, hashcode));
@@ -89,21 +89,37 @@ public class InitialActivity extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.button_open_initial:
                 intent = new Intent(this, InitialActivity.class);
+
+                if (checkBoxReorderToFront.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                }
                 break;
             case R.id.button_open_second:
                 intent = new Intent(this, SecondActivity.class);
+
+                if (checkBoxReorderToFront.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                }
                 break;
             case R.id.button_open_third:
                 intent = new Intent(this, ThirdActivity.class);
+
+                if (checkBoxReorderToFront.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                }
                 break;
-            default:
             case R.id.button_open_fourth:
                 intent = new Intent(this, FourthActivity.class);
-                break;
-        }
 
-        if (checkBoxReorderToFront.isChecked()) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                if (checkBoxReorderToFront.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                }
+                break;
+            case R.id.button_open_fifth:
+            default:
+                intent = new Intent(this, FifthActivity.class);
+                break;
+
         }
 
         startActivity(intent);
@@ -114,13 +130,11 @@ public class InitialActivity extends AppCompatActivity implements View.OnClickLi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Toast.makeText(this, "onNewIntent", Toast.LENGTH_LONG).show();
-        Log.d(TAG, "onNewIntent() called with: intent = [" + intent + "]");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "onResume() called");
     }
 }

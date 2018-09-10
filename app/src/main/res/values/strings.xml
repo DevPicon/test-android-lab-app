@@ -18,4 +18,6 @@
     <string name="button_open_fourth">Open D</string>
     <string name="hash_code">Object HashCode %d</string>
     <string name="checkbox_reorder_to_front">FLAG_ACTIVITY_REORDER_TO_FRONT</string>
+    <string name="checkbox_single_task">FLAG_SINGLE_TASK</string>
+    <string name="button_open_fifth">Open E - SingleTask</string>
 </resources>

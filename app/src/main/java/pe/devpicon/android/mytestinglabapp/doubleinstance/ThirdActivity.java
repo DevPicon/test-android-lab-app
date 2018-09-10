@@ -18,8 +18,8 @@ import pe.devpicon.android.mytestinglabapp.R;
 public class ThirdActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textViewResult, textViewHashCode, textViewStack;
-    private Button buttonA, buttonB, buttonC, buttonD;
-    private CheckBox checkBoxReorderToFront;
+    private Button buttonA, buttonB, buttonC, buttonD, buttonE;
+    private CheckBox checkBoxReorderToFront, checkBoxSingleTask;
 
     private int hashcode = -1;
 
@@ -32,21 +32,23 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
         textViewHashCode = (TextView) findViewById(R.id.text_view_hashcode);
         checkBoxReorderToFront = (CheckBox) findViewById(R.id.checkbox_reorder_to_front);
         textViewStack = (TextView) findViewById(R.id.text_view_stack);
+        checkBoxSingleTask = (CheckBox) findViewById(R.id.checkbox_singleTask);
 
         buttonA = (Button) findViewById(R.id.button_open_initial);
         buttonB = (Button) findViewById(R.id.button_open_second);
         buttonC = (Button) findViewById(R.id.button_open_third);
         buttonD = (Button) findViewById(R.id.button_open_fourth);
+        buttonE = (Button) findViewById(R.id.button_open_fifth);
 
         buttonA.setOnClickListener(this);
         buttonB.setOnClickListener(this);
         buttonC.setOnClickListener(this);
         buttonD.setOnClickListener(this);
+        buttonE.setOnClickListener(this);
 
         hashcode = this.hashCode();
         textViewHashCode.setText(getString(R.string.hash_code, hashcode));
         textViewResult.setText(getClass().getCanonicalName());
-
 
         textViewStack.setText(printActivityStack());
 
@@ -54,8 +56,9 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
 
     private String printActivityStack() {
         StringBuilder stack = new StringBuilder("Stack:::\n");
-        ActivityManager m = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        List<ActivityManager.RunningTaskInfo> runningTaskInfoList = m.getRunningTasks(10);
+        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        assert activityManager != null;
+        List<ActivityManager.RunningTaskInfo> runningTaskInfoList = activityManager.getRunningTasks(10);
         Iterator<ActivityManager.RunningTaskInfo> itr = runningTaskInfoList.iterator();
         while (itr.hasNext()) {
             ActivityManager.RunningTaskInfo runningTaskInfo = itr.next();
@@ -76,6 +79,7 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
         return stack.toString();
     }
 
+
     @Override
     public void onClick(View view) {
 
@@ -84,21 +88,37 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.button_open_initial:
                 intent = new Intent(this, InitialActivity.class);
+
+                if (checkBoxReorderToFront.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                }
                 break;
             case R.id.button_open_second:
                 intent = new Intent(this, SecondActivity.class);
+
+                if (checkBoxReorderToFront.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                }
                 break;
             case R.id.button_open_third:
                 intent = new Intent(this, ThirdActivity.class);
+
+                if (checkBoxReorderToFront.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                }
                 break;
-            default:
             case R.id.button_open_fourth:
                 intent = new Intent(this, FourthActivity.class);
-                break;
-        }
 
-        if (checkBoxReorderToFront.isChecked()) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                if (checkBoxReorderToFront.isChecked()) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                }
+                break;
+            case R.id.button_open_fifth:
+            default:
+                intent = new Intent(this, FifthActivity.class);
+                break;
+
         }
 
         startActivity(intent);
@@ -108,7 +128,7 @@ public class ThirdActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Toast.makeText(this, "onNewIntent", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "onNewIntent", Toast.LENGTH_LONG).show();
     }
 
     @Override

@@ -29,6 +29,12 @@
             android:layout_height="wrap_content"
             android:text="@string/checkbox_reorder_to_front" />
 
+        <CheckBox
+            android:id="@+id/checkbox_singleTask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkbox_single_task" />
+
         <Button
             android:id="@+id/button_open_initial"
             android:layout_width="wrap_content"
@@ -52,6 +58,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_open_fourth" />
+
+        <Button
+            android:id="@+id/button_open_fifth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_open_fifth" />
 
         <TextView
             android:id="@+id/text_view_stack"

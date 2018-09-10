@@ -42,6 +42,9 @@
         <activity android:name=".doubleinstance.FourthActivity" />
         <activity android:name=".doubleinstance.SecondActivity" />
         <activity android:name=".doubleinstance.ThirdActivity" />
+        <activity
+            android:name=".doubleinstance.FifthActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
