@@ -45,6 +45,7 @@
         <activity
             android:name=".doubleinstance.FifthActivity"
             android:launchMode="singleTask" />
+        <activity android:name=".doubleinstance.SingleResultActivity"></activity>
     </application>
 
 </manifest>

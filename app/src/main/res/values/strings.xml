@@ -20,4 +20,5 @@
     <string name="checkbox_reorder_to_front">FLAG_ACTIVITY_REORDER_TO_FRONT</string>
     <string name="checkbox_clear_top">FLAG_CLEAR_ON_TOP</string>
     <string name="button_open_fifth">Open E - SingleTask</string>
+    <string name="button_open_single">Open Single</string>
 </resources>

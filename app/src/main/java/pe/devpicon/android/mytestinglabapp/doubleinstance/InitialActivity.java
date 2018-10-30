@@ -17,6 +17,7 @@ import pe.devpicon.android.mytestinglabapp.R;
 
 public class InitialActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final int REQUEST_CODE_RESULT = 111;
     private TextView textViewResult, textViewHashCode, textViewStack;
     private Button buttonA, buttonB, buttonC, buttonD, buttonE;
     private CheckBox checkBoxReorderToFront, checkBoxSingleTask;
@@ -135,5 +136,24 @@ public class InitialActivity extends AppCompatActivity implements View.OnClickLi
     protected void onResume() {
         super.onResume();
         Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
+    }
+
+    public void openSingle(View view) {
+        Intent intent = new Intent(this, SingleResultActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivityForResult(intent, REQUEST_CODE_RESULT);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_RESULT) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "RESULT_OK " + requestCode, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "RESULT_CANCEL " + requestCode, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
