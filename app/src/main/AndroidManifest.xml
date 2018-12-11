@@ -45,7 +45,9 @@
         <activity
             android:name=".doubleinstance.FifthActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".doubleinstance.SingleResultActivity"></activity>
+        <activity android:name=".doubleinstance.SingleResultActivity" />
+        <activity android:name=".architecturecomponents.ArcCompActivity" />
+        <activity android:name=".currencies.CurrencyActivity"></activity>
     </application>
 
 </manifest>

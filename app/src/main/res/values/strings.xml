@@ -21,4 +21,9 @@
     <string name="checkbox_clear_top">FLAG_CLEAR_ON_TOP</string>
     <string name="button_open_fifth">Open E - SingleTask</string>
     <string name="button_open_single">Open Single</string>
+    <string name="button_currencies">Currency</string>
+    <string name="label_current_primary_locale">Primary locale %s</string>
+    <string name="label_current_primary_currency">Primary currency code %s</string>
+    <string name="label_current_primary_currency_symbol">Primary currency symbol %s</string>
+    <string name="label_formatted_number">Formatted number %s</string>
 </resources>

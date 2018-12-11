@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import pe.devpicon.android.mytestinglabapp.charts.ChartActivity;
+import pe.devpicon.android.mytestinglabapp.currencies.CurrencyActivity;
 import pe.devpicon.android.mytestinglabapp.doubleinstance.InitialActivity;
 import pe.devpicon.android.mytestinglabapp.imagespicasso.ImagePicassoActivity;
 import pe.devpicon.android.mytestinglabapp.restorestate.RestoreStateActivity;
@@ -38,5 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void toOpenActivities(View view) {
         startActivity(new Intent(this, InitialActivity.class));
+    }
+
+    public void toCurrencies(View view) {
+        startActivity(new Intent(this, CurrencyActivity.class));
     }
 }
