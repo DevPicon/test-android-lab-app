@@ -1,6 +1,5 @@
 package pe.devpicon.android.mytestinglabapp.currencies
 
-import android.icu.util.Currency
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -27,18 +26,43 @@ class CurrencyActivity : AppCompatActivity() {
             val currency = android.icu.util.Currency.getInstance(locales[0])
             tv_current_currency_code.text = getString(R.string.label_current_primary_currency, currency.currencyCode)
             tv_current_currency_symbol.text = getString(R.string.label_current_primary_currency_symbol, currency.symbol)
-            tv_formatted_number.text = getString(R.string.label_formatted_number, NumberFormat.getCurrencyInstance(locales[0]).format(100.00))
+            tv_formatted_number.text = "Current backend Currency code: MXN \n" +
+                    "1000.00f is formatted as ${formatCurrency(1000.00f, "MXN", locales[0])}\n" +
+                    "1000.213354f is formatted as ${formatCurrency(1000.213354f, "MXN", locales[0])}\n" +
+                    "1000.6789f is formatted as ${formatCurrency(1000.6789f, "MXN", locales[0])}\n\n" +
+                    "Current backend Currency code: CLP \n" +
+                    "1000.00f is formatted as ${formatCurrency(1000.00f, "CLP", locales[0])}\n" +
+                    "1000.213354f is formatted as ${formatCurrency(1000.213354f, "CLP", locales[0])}\n" +
+                    "1000.6789f is formatted as ${formatCurrency(1000.6789f, "CLP", locales[0])}\n\n"
+
         } else {
             val locale = resources.configuration.locale
             tv_current_locale.text = getString(R.string.label_current_primary_locale, locale.toString())
             val currency = java.util.Currency.getInstance(locale)
             tv_current_currency_code.text = getString(R.string.label_current_primary_currency, currency.currencyCode)
             tv_current_currency_symbol.text = getString(R.string.label_current_primary_currency_symbol, currency.symbol)
-            tv_formatted_number.text = getString(R.string.label_formatted_number, NumberFormat.getCurrencyInstance(locale).format(100.00))
+            tv_formatted_number.text = "Current backend Currency code: MXN \n" +
+                    "1000.00f is formatted as ${formatCurrency(1000.00f, "MXN", locale)}\n" +
+                    "1000.213354f is formatted as ${formatCurrency(1000.213354f, "MXN", locale)}\n" +
+                    "1000.6789f is formatted as ${formatCurrency(1000.6789f, "MXN", locale)}\n\n" +
+                    "Current backend Currency code: CLP \n" +
+                    "1000.00f is formatted as ${formatCurrency(1000.00f, "CLP", locale)}\n" +
+                    "1000.213354f is formatted as ${formatCurrency(1000.213354f, "CLP", locale)}\n" +
+                    "1000.6789f is formatted as ${formatCurrency(1000.6789f, "CLP", locale)}\n"
         }
 
         execute()
 
+    }
+
+    fun formatCurrency(currencyValue: Float, currencyCode: String, currentLocale: Locale): String {
+        val currency = java.util.Currency.getInstance(currencyCode)
+        val format = java.text.NumberFormat.getCurrencyInstance(currentLocale)
+        format.currency = currency
+        format.maximumFractionDigits = currency.defaultFractionDigits
+        format.minimumFractionDigits = currency.defaultFractionDigits
+
+        return format.format(currencyValue)
     }
 
     fun execute() {
@@ -81,8 +105,6 @@ class CurrencyActivity : AppCompatActivity() {
         format.currency = currency
         val formattedOutput = format.format(value)
         Log.d(TAG, currency.currencyCode + "  '" + formattedOutput + "'  " + loc.toString())
-
-
 
 
         val nf = NumberFormat.getNumberInstance(loc)

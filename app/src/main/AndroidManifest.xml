@@ -3,6 +3,8 @@
     package="pe.devpicon.android.mytestinglabapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
 
     <application
         android:name=".app.LabApplication"
@@ -12,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".telephonenumber.TelephoneActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,7 +50,8 @@
             android:launchMode="singleTask" />
         <activity android:name=".doubleinstance.SingleResultActivity" />
         <activity android:name=".architecturecomponents.ArcCompActivity" />
-        <activity android:name=".currencies.CurrencyActivity"></activity>
+        <activity android:name=".currencies.CurrencyActivity" />
+        <activity android:name=".roundedimage.RoundedImageActivity" />
     </application>
 
 </manifest>

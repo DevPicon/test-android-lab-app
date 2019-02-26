@@ -11,6 +11,7 @@ import pe.devpicon.android.mytestinglabapp.currencies.CurrencyActivity;
 import pe.devpicon.android.mytestinglabapp.doubleinstance.InitialActivity;
 import pe.devpicon.android.mytestinglabapp.imagespicasso.ImagePicassoActivity;
 import pe.devpicon.android.mytestinglabapp.restorestate.RestoreStateActivity;
+import pe.devpicon.android.mytestinglabapp.roundedimage.RoundedImageActivity;
 import pe.devpicon.android.mytestinglabapp.zoom.ZoomImageActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,5 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void toCurrencies(View view) {
         startActivity(new Intent(this, CurrencyActivity.class));
+    }
+
+    public void toRoundedImages(View view) {
+        startActivity(new Intent(this, RoundedImageActivity.class));
     }
 }
