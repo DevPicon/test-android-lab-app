@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".app.LabApplication"
         android:allowBackup="true"
@@ -14,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".scanner.ScanProductActivity"></activity>
+        <activity android:name=".notifications.NotificationActivity"></activity>
+        <activity android:name=".scanner.ScanProductActivity" />
         <activity android:name=".telephonenumber.TelephoneActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -53,6 +59,8 @@
         <activity android:name=".architecturecomponents.ArcCompActivity" />
         <activity android:name=".currencies.CurrencyActivity" />
         <activity android:name=".roundedimage.RoundedImageActivity" />
+
+        <service android:name=".notifications.LoudNotificationService" />
     </application>
 
 </manifest>

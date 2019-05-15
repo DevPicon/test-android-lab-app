@@ -27,4 +27,6 @@
     <string name="label_current_primary_currency_symbol">Primary currency symbol %s</string>
     <string name="label_formatted_number">Formatted number %s without decimals \nFormatted number %s with decimals \nFormatted number %s with decimals</string>
     <string name="button_rounded_images">Rounded Image</string>
+    <string name="button_camera">Touch focus</string>
+    <string name="button_notification">Notification</string>
 </resources>

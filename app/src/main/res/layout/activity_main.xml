@@ -1,55 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="toRestoreState"
-        android:text="@string/button_restore_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="@string/button_restore_state" />
 
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="toPicassoImageLoader"
-        android:text="@string/button_picasso_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="@string/button_picasso_test" />
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="toMChartTest"
-        android:text="@string/button_mchart_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="@string/button_mchart_test" />
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="toZoomPhotoView"
-        android:text="@string/button_zoom_photoview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="@string/button_zoom_photoview" />
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="toOpenActivities"
-        android:text="@string/button_open_activities"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="@string/button_open_activities" />
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="toCurrencies"
-        android:text="@string/button_currencies"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="@string/button_currencies" />
 
     <Button
-        android:onClick="toRoundedImages"
-        android:text="@string/button_rounded_images"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:onClick="toRoundedImages"
+        android:text="@string/button_rounded_images" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="toCamera"
+        android:text="@string/button_camera" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="toNotification"
+        android:text="@string/button_notification" />
 
 
 </LinearLayout>
