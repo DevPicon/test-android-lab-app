@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".notifications.NotificationActivity"></activity>
+        <activity android:name=".location.LocationActivity"></activity>
+        <activity android:name=".notifications.NotificationActivity" />
         <activity android:name=".scanner.ScanProductActivity" />
         <activity android:name=".telephonenumber.TelephoneActivity" />
         <activity android:name=".MainActivity">
