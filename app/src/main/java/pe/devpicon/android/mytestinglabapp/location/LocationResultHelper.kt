@@ -2,11 +2,14 @@ package pe.devpicon.android.mytestinglabapp.location
 
 
 import android.app.Notification
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.location.Location
+import android.os.Build
 import android.preference.PreferenceManager
 import android.support.v4.app.TaskStackBuilder
 import pe.devpicon.android.mytestinglabapp.MainActivity
@@ -21,6 +24,16 @@ import java.util.*
 class LocationResultHelper(val mContext: Context, val mLocations: MutableList<Location>) {
     private val PRIMARY_CHANNEL = "default"
     private var mNotificationManager: NotificationManager? = null
+
+    init {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(PRIMARY_CHANNEL, mContext
+                    .getString(R.string.default_channel), NotificationManager.IMPORTANCE_DEFAULT)
+            channel.lightColor = Color.GREEN
+            channel.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
+            getNotificationManager().createNotificationChannel(channel)
+        }
+    }
 
     /**
      * Returns the title for reporting about a list of [Location] objects.
@@ -105,14 +118,26 @@ class LocationResultHelper(val mContext: Context, val mLocations: MutableList<Lo
         // Get a PendingIntent containing the entire back stack.
         val notificationPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val notificationBuilder = Notification.Builder(mContext)
-                .setContentTitle(getLocationResultTitle())
-                .setContentText(getLocationResultText())
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setAutoCancel(true)
-                .setContentIntent(notificationPendingIntent)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            val notificationBuilder = Notification.Builder(mContext)
+                    .setContentTitle(getLocationResultTitle())
+                    .setContentText(getLocationResultText())
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setAutoCancel(true)
+                    .setContentIntent(notificationPendingIntent)
 
-        getNotificationManager().notify(0, notificationBuilder.build())
+            getNotificationManager().notify(0, notificationBuilder.build())
+        } else {
+            val notificationBuilder = Notification.Builder(mContext, PRIMARY_CHANNEL)
+                    .setContentTitle(getLocationResultTitle())
+                    .setContentText(getLocationResultText())
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setAutoCancel(true)
+                    .setContentIntent(notificationPendingIntent)
+            getNotificationManager().notify(0, notificationBuilder.build())
+
+        }
+
     }
 
 }
