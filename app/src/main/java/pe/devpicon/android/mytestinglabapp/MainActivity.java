@@ -10,6 +10,7 @@ import pe.devpicon.android.mytestinglabapp.charts.ChartActivity;
 import pe.devpicon.android.mytestinglabapp.currencies.CurrencyActivity;
 import pe.devpicon.android.mytestinglabapp.doubleinstance.InitialActivity;
 import pe.devpicon.android.mytestinglabapp.imagespicasso.ImagePicassoActivity;
+import pe.devpicon.android.mytestinglabapp.location.LocationActivity;
 import pe.devpicon.android.mytestinglabapp.notifications.NotificationActivity;
 import pe.devpicon.android.mytestinglabapp.restorestate.RestoreStateActivity;
 import pe.devpicon.android.mytestinglabapp.roundedimage.RoundedImageActivity;
@@ -58,5 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void toNotification(View view) {
         startActivity(new Intent(this, NotificationActivity.class));
+    }
+
+    public void toLocations(View view) {
+        startActivity(new Intent(this, LocationActivity.class));
     }
 }
