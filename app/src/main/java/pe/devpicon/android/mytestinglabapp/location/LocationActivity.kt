@@ -133,14 +133,15 @@ class LocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallback
      * immediately, and disconnects automatically in [AppCompatActivity.onStop].
      */
     private fun buildGoogleApiClient() {
-        if (mGoogleApiClient != null) {
+        /*if (mGoogleApiClient != null) {
             return
         }
+
         mGoogleApiClient = GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .enableAutoManage(this, this)
                 .addApi(LocationServices.API)
-                .build()
+                .build()*/
         createLocationRequest()
     }
 
@@ -149,9 +150,12 @@ class LocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallback
     }
 
     private fun getPendingIntent(): PendingIntent {
-        val intent = Intent(this@LocationActivity, LocationUpdatesIntentService::class.java)
-        intent.action = LocationUpdatesIntentService.ACTION_PROCESS_UPDATES
-        return PendingIntent.getService(this@LocationActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        // val intent = Intent(this@LocationActivity, LocationUpdatesIntentService::class.java)
+        val intent = Intent(this@LocationActivity, LocationUpdatesBroadcastReceiver::class.java)
+        // intent.action = LocationUpdatesIntentService.ACTION_PROCESS_UPDATES
+        intent.action = LocationUpdatesBroadcastReceiver.ACTION_PROCESS_UPDATES
+        //return PendingIntent.getService(this@LocationActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        return PendingIntent.getBroadcast(this@LocationActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
 
     override fun onConnectionSuspended(i: Int) {
@@ -282,8 +286,11 @@ class LocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallback
         try {
             Log.i(TAG, "Starting location updates")
             LocationRequestHelper.setRequesting(this, true)
-            LocationServices.FusedLocationApi.requestLocationUpdates(
-                    mGoogleApiClient, mLocationRequest, getPendingIntent())
+            /*LocationServices.FusedLocationApi.requestLocationUpdates(
+                    mGoogleApiClient, mLocationRequest, getPendingIntent())*/
+            LocationServices.getFusedLocationProviderClient(this).requestLocationUpdates(
+                    mLocationRequest, getPendingIntent()
+            )
         } catch (e: SecurityException) {
             LocationRequestHelper.setRequesting(this, false)
             e.printStackTrace()
@@ -297,8 +304,10 @@ class LocationActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallback
     fun removeLocationUpdates(view: View) {
         Log.i(TAG, "Removing location updates")
         LocationRequestHelper.setRequesting(this, false)
-        LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient,
-                getPendingIntent())
+        /*LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient,
+                getPendingIntent())*/
+        LocationServices.getFusedLocationProviderClient(this)
+                .removeLocationUpdates(getPendingIntent())
     }
 
     /**
